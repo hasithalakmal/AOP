@@ -1,0 +1,7 @@
+@font-face { font-family: FM_DERAN; src: url('../fonts/FM_DERAN.TTF'); } 
+@font-face { font-family: FM_Abhaya_Bold; src: url('../fonts/FM Abhaya Bold.TTF'); } 
+
+
+.fm-derana{font-family: FM_DERAN;}
+.fm-abhaya-bold{font-family: FM_Abhaya_Bold;}
+

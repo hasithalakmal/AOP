@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SVD | MIS </title>
+
+        <link rel="shortcut icon" href="../../resource/images/flag.png">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+
+
+
+
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../../resource/css/font-awesome-4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../../resource/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- SVD Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <!-- SVD main css -->
+        <link rel="stylesheet" href="../../resource/css/svd-mis-main.css">
+
+        <!-- jQuery 2.2.0 -->
+        <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script> 
+
+        <!-- Sweet Alerts -->
+        <script src="../../resource/js/lib/sweetalert.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../../resource/js/lib/sweetalert.css">
+
+        <!-- Validation JS -->
+        <script src="../../resource/js/lib/jquery.validate.min.js"></script> 
+        <script src="../../resource/js/lib/additional-methods.min.js"></script> 
+		
+		<!-- Chart Legend -->
+		<script src="../../resource/js/lib/legend.js"></script> 
+		
+		<!-- DataTables -->
+		<link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+
+
+        <style>
+            .error{
+                color: red;
+            }
+
+			div.hidden
+			{
+			   display: none
+			}
+			.legend {
+				border: 1px solid black;
+			}
+
+			.legend .title {
+				display: block;
+				margin-bottom: 0.5em;
+				line-height: 1.2em;
+				padding: 0 0.3em;
+			}
+
+			.legend .color-sample {
+				display: block;
+				float: left;
+				width: 1em;
+				height: 1em;
+				border: 2px solid; /* Comment out if you don't want to show the fillColor */
+				border-radius: 0.5em; /* Comment out if you prefer squarish samples */
+				margin-right: 0.5em;
+			}
+        </style>
+
+        <script>
+            $(function () {
+
+                var userType = localStorage.getItem("menueName");
+                
+                $("#leftMenueOfSVD").load(userType);
+                $("#mainFooterOfSVD").load("../common/footer.html");
+                $("#adminNotificationComponent").load("../common/AdminNotification.html");
+                $("#systemNotificationCompnent").load("../common/SystemNotification.html");
+                $("#userTaskComponent").load("../common/UserTaskNotification.html");
+                $("#userProfileMiniComponent").load("../common/UserProfileMini.html");
+            });
+        </script>
+
+        <!-- this page controlling JS -->
+        <script src="../../resource/js/student_management/Analyze_Student.js"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+
+
+
+    <body class="hold-transition skin-blue sidebar-mini">
+
+
+
+
+        <div class="wrapper">
+
+
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="../welcome/welcome.html" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>SRM</b></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg "><b>SVD | RND | MIS</b></span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+
+                            <!-- Messages: style can be found in dropdown.less-->
+                            <li class="dropdown messages-menu" id="adminNotificationComponent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- Notifications: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu" id="systemNotificationCompnent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- Tasks: style can be found in dropdown.less -->
+                            <li class="dropdown tasks-menu" id="userTaskComponent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu" id="userProfileMiniComponent">
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar" id="leftMenueOfSVD"></aside>
+
+
+
+
+
+
+
+
+
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper" style="padding:1%">
+                <!-- general form elements disabled -->
+                <div class="box box-warning">
+                    <div class="box-header with-border" align="center">
+                        <h3 class="box-title">Student Horizontal Analysis</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <form role="form" id="studentAnalyser">
+
+							<!-- radio -->
+                            <div class="form-group">
+                                <label>Search By <span style="color:red">*</span></label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="select_wise" id="whole" value="whole" checked>
+                                        Whole Sunday School 
+                                    </label>
+									<label></label>
+                                    <label>
+                                        <input type="radio" name="select_wise" id="zone_wise" value="zone_wise">
+                                        Zone Wise
+                                    </label>
+									<label></label>
+									<label>
+                                        <input type="radio" name="select_wise" id="gread_wise" value="gread_wise">
+                                        Gread Wise
+                                    </label>
+									<label></label>
+									<label>
+                                        <input type="radio" name="select_wise" id="class_wise" value="class_wise">
+                                        Class Wise
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- text input -->
+							<div class="form-group">
+                                <label>Years should taken to analyse <span style="color:red">*</span></label>
+                                <input type="text"  class="form-control" placeholder="Enter the Year of Admission" id="years" name="years" >
+                            </div>
+                            <div class="form-group hidden" id="zone" name="zone">
+                                <label>Select Zone</label>
+                                <select class="form-control" id="zone1" name="zone1">
+									<option value="p">ප්‍රථමික කලාපය</option>
+									<option value="k">කනිෂ්ඨ කලාපය</option>
+									<option value="jp">ජ්‍යෙෂ්ඨ පිරිමි කලාපය</option>
+									<option value="jg">ජය්ෂ්ඨ ගැහැණු කලාපය</option>
+									<option value="u">උත්තර අධ්‍යන කලාපය</option>									
+                                </select>
+                            </div>
+							
+							<div class="form-group hidden" id="gread" name="gread" >
+                                <label>Select Grade</label>
+                                <select class="form-control" id="gread1" name="gread1">
+									<option value="2">Gread 2</option>
+									<option value="3">Gread 3</option>
+									<option value="4">Gread 4</option>
+									<option value="5">Gread 5</option>
+									<option value="6">Gread 6</option>	
+									<option value="7">Gread 7</option>
+									<option value="8">Gread 8</option>
+									<option value="9">Gread 9</option>
+									<option value="10">Gread 10</option>
+									<option value="11">Gread 11</option>	
+									<option value="12">Gread 12</option>
+									<option value="13">Gread 13</option>
+									<option value="14">Gread 14</option>								
+                                </select>
+                            </div>
+							
+							<div class="form-group hidden"  id="class" name="class">
+                                <label>Select Class</label>
+                                <select class="form-control" id="class1" name="class1">
+									<option value="A">A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+									<option value="E">E</option>	
+									<option value="F">F</option>
+									<option value="G">G</option>
+									<option value="H">H</option>
+									<option value="I">I</option>
+									<option value="J">J</option>	
+									<option value="K">K</option>
+									<option value="L">L</option>
+									<option value="M">M</option>	
+									<option value="N">N</option>	
+                                </select>
+                            </div>
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary" >Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+					 <!-- /.box-body -->
+				 </div>
+                <!-- /.box -->
+					
+					<div id="analyse_report" >
+					
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-aqua">
+							<div class="inner">
+							  <h3 id = "att1"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>ඉරුදින සාමාන්‍ය පැමිණීම </p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-tachometer"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-yellow">
+							<div class="inner">
+							  <h3 id = "att2"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>ඉරුදින උපරිම පැමිණීම</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-bar-chart"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-red">
+							<div class="inner">
+							  <h3 id = "att3"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>ඉරුදින අවම පැමිණීම</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-exclamation"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+					<div class="row">
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-green">
+							<div class="inner">
+							  <h3 id = "att4"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>පොහොය දින සාමාන්‍ය පැමිණීම</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-tachometer"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-purple">
+							<div class="inner">
+							  <h3 id = "att5"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>පොහොය දින උපරිම පැමිණීම</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-bar-chart"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-orange">
+							<div class="inner">
+							  <h3 id = "att6"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>පොහොය දින අවම පැමිණීම</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-exclamation"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+					
+					
+					<!-- BAR CHART -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+						  <h3 class="box-title">දරුවන්ගේ ගුණ පිලිබඳ ගුරුවරුන්ගේ වාර්තාව</h3>
+
+						  <div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							</button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						  </div>
+						</div>
+						<div class="box-body">
+						  <div class="chart">
+							<canvas id="guna_chart" style="height:230px"></canvas>
+						  </div>
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+					
+					
+					<!-- DONUT CHART -->
+					<div class="row">
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">පාසල් වේලාවෙන් පසු  හැසිරීම</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="after_school" style="height:250px"></canvas>
+									<div id="after_schoolLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+						</div>
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title"> කියවීමේ රුචිකත්වය</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="reading_pattern" style="height:250px"></canvas>
+									<div id="readingLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+					</div>
+					<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title"> රුපවාහිනි වැඩසටහන් නැරඹීමේ රුචිකත්වය</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="tv_programmes" style="height:250px"></canvas>
+									<div id="tv_programmesLegend"></div>
+								</div>
+								<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+							
+					<!-- BAR CHART -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+						  <h3 class="box-title">දරුවන් සතු වගකීම් සමුහයන්</h3>
+
+						  <div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							</button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						  </div>
+						</div>
+						<div class="box-body">
+						  <div class="chart">
+							<canvas id="responsibilities_chart" style="height:230px"></canvas>
+							<div id="responsibilitiesLegend"></div>
+						  </div>
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+					
+					<!-- BAR CHART -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+						  <h3 class="box-title">නිවසේදී හැසිරෙන ආකාරය</h3>
+
+						  <div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							</button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						  </div>
+						</div>
+						<div class="box-body">
+						  <div class="chart">
+							<canvas id="home_behavior_chart" style="height:230px"></canvas>
+							<div id="home_behaviorLegend"></div>
+						  </div>
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+					
+					<!-- BAR CHART -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+						  <h3 class="box-title">ගදරුවන් සතු දක්ෂතා</h3>
+
+						  <div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							</button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						  </div>
+						</div>
+						<div class="box-body">
+						  <div class="chart">
+							<canvas id="talents_chart" style="height:230px"></canvas>
+							<div id="talentsLegend"></div>
+						  </div>
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+					
+					<!-- facilities CHART -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+						  <h3 class="box-title">නිවසේ ඇති පහසුකම් පිලිබඳ තොරතුරු</h3>
+
+						  <div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							</button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						  </div>
+						</div>
+						<div class="box-body">
+						  <div class="chart">
+							<canvas id="facilities_chart" style="height:230px"></canvas>
+							<div id="facilitiesLegend"></div>
+						  </div>
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+					
+					
+					<!-- Parent Live CHART -->
+					<div class="row">
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">දරුවන්ගේ පියවරුන්</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="father_live" style="height:250px"></canvas>
+									<div id="father_liveLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">දරුවන්ගේ මව්වරුන්</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="mother_live" style="height:250px"></canvas>
+									<div id="mother_liveLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+					</div>
+					
+					
+					<!-- Parent ill CHART -->
+					<div class="row">
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">රෝගී පියවරුන් සිටින දරුවන්</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="father_ill" style="height:250px"></canvas>
+									<div id="father_illLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">රෝගී මව්වරුන් සිටින දරුවන්</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="mother_ill" style="height:250px"></canvas>
+									<div id="mother_illLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+					</div>
+					
+					<!-- Lives with CHART -->
+					<div class="row">
+						<div class="col-lg-4 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">දරුවන් ජීවත් වන්නේ කා සමගද?</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="lives_with" style="height:250px"></canvas>
+									<div id="lives_withLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+						<div class="col-lg-4 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">දහම්පසලට පැමිණෙන්නේ කා සමගද?</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="comes_with" style="height:250px"></canvas>
+									<div id="comes_withLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+						<div class="col-lg-4 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">දහම්පසලට පැමිණෙන්නේ කෙසේද?</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="comes_from" style="height:250px"></canvas>
+									<div id="comes_fromLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+					</div>
+					
+					<!-- Parent Sill CHART -->
+					<div class="row">
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">පියා සිල් සමාදන් වන්නේද?</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="father_sill" style="height:250px"></canvas>
+									<div id="father_sillLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">මව සිල් සමාදන් වන්නේද?</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="mother_sill" style="height:250px"></canvas>
+									<div id="mother_sillLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+					</div>
+					
+					<!-- Parent drink CHART -->
+					<div class="row">
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">පියා මත්පැන් පානය කරයිද?</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="father_drink" style="height:250px"></canvas>
+									<div id="father_drinkLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+						<div class="col-lg-6 col-xs-6">
+							<div class="box box-danger">
+								<div class="box-header with-border">
+								  <h3 class="box-title">පියා හැර වෙනත් අයෙක් මත් පැන්  පානය කරයිද?</h3>
+
+								  <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+								  </div>
+								</div>
+								<div class="box-body">
+									<canvas id="mother_drink" style="height:250px"></canvas>
+									<div id="mother_drinkLegend"></div>
+								</div>
+								<!-- /.box-body -->
+							</div>
+							<!-- /.box -->
+							
+						</div>
+					</div>
+					
+					
+					<!-- BAR CHART -->
+					<div class="box box-success">
+						<div class="box-header with-border">
+						  <h3 class="box-title">දරුවන් පිළිබඳ නිර්දේශ කිරීම්</h3>
+
+						  <div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							</button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						  </div>
+						</div>
+						<div class="box-body">
+						  <div class="chart">
+							<canvas id="reccomendation_chart" style="height:230px"></canvas>
+							<div id="reccomendationLegend"></div>
+						  </div>
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+					
+					<!--reccomendation Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">නිර්දේශිත දරුවන්  හා නිර්දේශ</h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="studentReccomendationTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									  <th>අනු අංකය </th>
+									  <th>ඇතුලත්වීමේ අංකය</th>
+									  <th>සම්පුර්ණ නම</th>
+									  <th>වර්ෂය</th>
+									  <th>නිර්දේශ වර්ගය</th>
+									  <th>මාතෘකාව</th>
+									  <th>විස්තරය</th>
+									</tr>
+								</thead>
+								<tbody id ="studentReccomendationTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									  <th>අනු අංකය </th>
+									  <th>ඇතුලත්වීමේ අංකය</th>
+									  <th>සම්පුර්ණ නම</th>
+									  <th>වර්ෂය</th>
+									  <th>නිර්දේශ වර්ගය</th>
+									  <th>මාතෘකාව</th>
+									  <th>විස්තරය</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>
+					
+					
+					<!--desies_count Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">රෝගී දරුවන්</h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="desiescountTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									  <th>රෝගය</th>
+									  <th>රෝගය පිලිබඳ විස්තරය</th>
+									  <th>රෝගී ශිෂ්‍ය සංඛ්‍යාව</th>
+									</tr>
+								</thead>
+								<tbody id ="desiescountTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									 <th>රෝගය</th>
+									  <th>රෝගය පිලිබඳ විස්තරය</th>
+									  <th>රෝගී ශිෂ්‍ය සංඛ්‍යාව</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>
+					
+					<!--desies Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">රෝගය</h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="desiesTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									  <th>ඇතුලත්වීමේ අංකය</th>
+									  <th>සම්පුර්ණ නම</th>
+									  <th>රෝගය</th>
+									  <th>රෝග විස්තරය</th>
+									  <th>රෝගය හඳුනා ගත් වර්ෂය</th>
+									</tr>
+								</thead>
+								<tbody id ="desiesTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									  <th>ඇතුලත්වීමේ අංකය</th>
+									  <th>සම්පුර්ණ නම</th>
+									  <th>රෝගය</th>
+									  <th>රෝග විස්තරය</th>
+									  <th>රෝගය හඳුනා ගත් වර්ෂය</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>
+					
+					
+					<!--schools Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">දරුවන්ගේ දිනපතා පාසල්</h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="schoolsTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									  <th>පාසැල</th>
+									  <th>පිහිටි නගරය</th>
+									  <th>ශිෂ්‍ය සංඛ්‍යාව</th>
+									</tr>
+								</thead>
+								<tbody id ="schoolsTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									  <th>පාසැල</th>
+									  <th>පිහිටි නගරය</th>
+									  <th>ශිෂ්‍ය සංඛ්‍යාව</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>
+					
+					<!--city Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">දරුවන් පදිංචි නගර</h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="cityTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									  <th>නගරය</th>
+									  <th>ශිෂ්‍ය සංඛ්‍යාව</th>
+									</tr>
+								</thead>
+								<tbody id ="cityTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									   <th>නගරය</th>
+									  <th>ශිෂ්‍ය සංඛ්‍යාව</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>
+					
+					<!-- Small boxes (Stat box) -->
+					<div class="row">
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-aqua">
+							<div class="inner">
+							  <h3 id = "shd1">53<sup style="font-size: 20px">%</sup></h3>
+
+							  <p>නිවසේ සිට සාමාන්‍ය දුර</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-tachometer"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-yellow">
+							<div class="inner">
+							  <h3 id = "shd2">44<sup style="font-size: 20px">%</sup></h3>
+
+							  <p>නිවසේ සිට උපරිම දුර</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-bar-chart"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-red">
+							<div class="inner">
+							  <h3 id = "shd3">65<sup style="font-size: 20px">%</sup></h3>
+
+							  <p>නිවසේ සිට අවම දුර</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-exclamation"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+					
+					<!--far_occ Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">පියවරුන්ගේ රැකියා තොරතුරු</h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="far_occTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									  <th>රැකියාවේ වර්ගය</th>
+									  <th>විස්තරය</th>
+									  <th>පියවරුන් සංඛ්‍යාව</th>
+									</tr>
+								</thead>
+								<tbody id ="far_occTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									   <th>රැකියාවේ වර්ගය</th>
+									  <th>විස්තරය</th>
+									  <th>පියවරුන් සංඛ්‍යාව</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>
+					
+					
+					<!--mot_occ Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">මව්වරුන්ගේ රැකියා තොරතුරු</h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="mot_occTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									   <th>රැකියාවේ වර්ගය</th>
+									  <th>විස්තරය</th>
+									  <th>මව්වරුන් සංඛ්‍යාව</th>
+									</tr>
+								</thead>
+								<tbody id ="mot_occTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									   <th>රැකියාවේ වර්ගය</th>
+									  <th>විස්තරය</th>
+									  <th>මව්වරුන් සංඛ්‍යාව</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>
+					
+					
+					<!--gur_occ Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">භාරකරුවන්ගේ රැකියා තොරතුරු</h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="gur_occTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									  <th>රැකියාවේ වර්ගය</th>
+									  <th>විස්තරය</th>
+									  <th>භාරකරුවන් සංඛ්‍යාව</th>
+									</tr>
+								</thead>
+								<tbody id ="gur_occTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									 <th>රැකියාවේ වර්ගය</th>
+									  <th>විස්තරය</th>
+									  <th>භාරකරුවන් සංඛ්‍යාව</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>
+					
+					
+					<!--no_far Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">පියා අහිමි වූ දරුවන් </h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="no_farTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									  <th>ඇතුලත්වීමේ අංකය</th>
+									  <th>සම්පුර්ණ නම</th>
+									  <th>ස්ත්‍රී පුරුෂ භාවය</th>
+									  <th>උපන්දිනය</th>
+									  <th>ලිපිනය</th>
+									</tr>
+								</thead>
+								<tbody id ="no_farTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									  <th>ඇතුලත්වීමේ අංකය</th>
+									  <th>සම්පුර්ණ නම</th>
+									  <th>ස්ත්‍රී පුරුෂ භාවය</th>
+									  <th>උපන්දිනය</th>
+									  <th>ලිපිනය</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>	
+					
+					
+					<!--no_mot Table -->
+					<div>
+						<div class="box box-warning">
+							<div class="box-header with-border" align="center">
+								<h3 class="box-title">මව අහිමි වූ දරුවන් </h3>
+								 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+							  <table id="no_motTable" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+									   <th>ඇතුලත්වීමේ අංකය</th>
+									  <th>සම්පුර්ණ නම</th>
+									  <th>ස්ත්‍රී පුරුෂ භාවය</th>
+									  <th>උපන්දිනය</th>
+									  <th>ලිපිනය</th>
+									</tr>
+								</thead>
+								<tbody id ="no_motTableBody">
+									
+								</tbody>
+								<tfoot>
+									<tr>
+									   <th>ඇතුලත්වීමේ අංකය</th>
+									  <th>සම්පුර්ණ නම</th>
+									  <th>ස්ත්‍රී පුරුෂ භාවය</th>
+									  <th>උපන්දිනය</th>
+									  <th>ලිපිනය</th>
+									</tr>
+								</tfoot>
+							  </table>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+					</div>	
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+                   
+                </div>
+            </div>
+
+        </div>
+        <!-- /.content-wrapper -->
+
+
+
+
+
+
+
+
+        <footer class="main-footer" id = "mainFooterOfSVD"></footer>
+
+
+        <!-- ./wrapper -->
+
+
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- SVD App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- SVD for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+
+
+		<!-- DataTables -->
+		<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<!-- SlimScroll -->
+		<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+		
+		<!-- ChartJS 1.0.1 -->
+		<script src="../../plugins/chartjs/Chart.min.js"></script>
+
+
+
+        <!-- InputMask -->
+        <script src="../../plugins/input-mask/jquery.inputmask.js"></script>
+        <script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+        <script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+
+
+    </body>
+</html>

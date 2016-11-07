@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SVD | MIS </title>
+
+        <link rel="shortcut icon" href="../../resource/images/flag.png">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../../resource/css/font-awesome-4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../../resource/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- SVD Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <!-- SVD main css -->
+        <link rel="stylesheet" href="../../resource/css/svd-mis-main.css">
+
+        <!-- jQuery 2.2.0 -->
+        <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+
+        <!-- Sweet Alerts -->
+        <script src="../../resource/js/lib/sweetalert.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../../resource/js/lib/sweetalert.css">
+
+
+		<!-- DataTables -->
+		<link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+
+        <!-- stu profile css js -->
+        <!-- core CSS -->
+        <link href="css/animate.min.css" rel="stylesheet">
+        <link href="css/owl.carousel.css" rel="stylesheet">
+        <link href="css/owl.transitions.css" rel="stylesheet">
+        <link href="css/prettyPhoto.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+        <link href="css/responsive.css" rel="stylesheet">
+
+
+        <!-- Custom CSS -->
+        <link href="css/agency.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
+        <script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+
+        <!-- Chart JS import -->
+        <script src="js/Chart.js"></script>
+
+
+
+
+
+
+
+
+
+        <script>
+            $(function () {
+
+                var userType = localStorage.getItem("menueName");
+
+                $("#leftMenueOfSVD").load(userType);
+                $("#mainFooterOfSVD").load("../common/footer.html");
+                $("#adminNotificationComponent").load("../common/AdminNotification.html");
+                $("#systemNotificationCompnent").load("../common/SystemNotification.html");
+                $("#userTaskComponent").load("../common/UserTaskNotification.html");
+                $("#userProfileMiniComponent").load("../common/UserProfileMini.html");
+            });
+        </script>
+
+        <!-- this page controlling JS -->
+        <script src="../../resource/js/stu_profile/student_profile_personaldetails.js"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+
+
+
+    <body class="hold-transition skin-blue sidebar-mini">
+
+
+
+
+        <div class="wrapper">
+
+
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="../welcome/welcome.html" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>SRM</b></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>SVD | RND | MIS</b></span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+
+                            <!-- Messages: style can be found in dropdown.less-->
+                            <li class="dropdown messages-menu" id="adminNotificationComponent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- Notifications: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu" id="systemNotificationCompnent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- Tasks: style can be found in dropdown.less -->
+                            <li class="dropdown tasks-menu" id="userTaskComponent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu" id="userProfileMiniComponent">
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar" id="leftMenueOfSVD"></aside>
+
+
+
+
+
+
+
+
+
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper" style="padding:1%;">
+                <div id="home" class="homepage" >
+                    <header id="header">
+                        <nav id="main-menu"  class="navbar navbar-default navbar-fixed-top" style="position: relative;" role="banner">
+                            <div class="container" style = "width : 95%">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                                </div>
+
+
+                                <div class="collapse navbar-collapse navbar-right">
+                                    <ul class="nav navbar-nav">
+                                        <li class="scroll active"><a href="#home">Home</a></li>
+                                        <li class="scroll"><a href="#cta">පෞද්ගලික තොරතුරු</a></li>
+                                        <li class="scroll"><a href="#features">අධ්‍යන පංතිය</a></li>
+                                        <li class="scroll"><a href="#testimonial">විශේෂ කරුණු</a></li>
+                                        <li class="scroll"><a href="#about">විභාග ප්‍රතිපල</a></li>
+                                        <li class="scroll"><a href="#services">ගති පැවතුම්</a></li>
+                                        <li class="scroll"><a href="#portfolio">තුරුණු සවිය</a></li> 
+                                        <li class="scroll"><a href="#meet-team">ශිෂ්‍ය නායක</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--/.container-->
+                        </nav><!--/nav-->
+                    </header><!--/header-->
+
+                    <!--හැඳින්වීම cta -->
+                    <section id="cta" class="wow fadeIn" >
+                        <div class="container" style = "width : 95%">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="section-header">
+                                        <h2 class="section-title text-center wow fadeInDown">පෞද්ගලික තොරතුරු</h2>
+                                    </div>
+                                    <table class="table" style="color:black" >
+                                        <tbody id="studentPersonalDetails">
+                                            <!-- load by ajax call -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--   <div class="col-sm-3 text-right">
+                                       <a class="btn btn-primary btn-lg" href="#">Download Now!</a>
+                                   </div>
+                                -->
+                            </div>
+                        </div>
+                    </section><!--/#cta-->
+
+
+                    <!-- විශේෂතා -->
+                    <section id="features">
+                        <div class="container" style = "width : 95%">
+                            <div class="section-header">
+                                <h2 class="section-title text-center wow fadeInDown">අධ්‍යන පංතිය</h2>
+                                <div class="col-sm-6 wow fadeInLeft">
+                                    <canvas id="canvas2" height="450" width="600"></canvas>
+                                </div>
+
+                                <div class="col-sm-6 wow fadeInLeft">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>පංතිය</th>
+                                                <th>කොටස</th>
+                                                <th>පංතිභාර ගුරුතුමන් / තුමිය</th>
+                                                <th>වර්ෂය</th>
+                                                <th>නාමලේඛන අනු අංකය</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>F</td>
+                                                <td>Yashika Gayathri Daranagama</td>
+                                                <td>2002</td>
+                                                <td>23</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>F</td>
+                                                <td>Rushen Audarya</td>
+                                                <td>2003</td>
+                                                <td>23</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>F</td>
+                                                <td>Sandamali Swarnasingha</td>
+                                                <td>2004</td>
+                                                <td>21</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>F</td>
+                                                <td>Chanaka Sampath Hettihewa</td>
+                                                <td>2005</td>
+                                                <td>20</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>A</td>
+                                                <td>Niroshan Dharmakantha</td>
+                                                <td>2006</td>
+                                                <td>18</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>A</td>
+                                                <td>Yashika Gayathri Daranagama</td>
+                                                <td>2008</td>
+                                                <td>16</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>A</td>
+                                                <td>Dhanushka Ramanayake</td>
+                                                <td>2009</td>
+                                                <td>15</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- idiri pinkam list    testimonial -->
+                    <section id="testimonial">
+                        <div class="container" style = "width : 95%">
+                            <div class="row" style="color : black" id = "specialNotes">
+								<div class="section-header">
+                                        <h2 class="section-title text-center wow fadeInDown"> විශේෂ සටහන් </h2>
+                                    </div>
+                                
+
+                            </div>
+                        </div>
+                    </section><!--/#testimonial-->
+
+
+                    <!-- සුවිශේෂි මතක සටහන්  about-->
+                    <section id="about">
+                        <div class="container" style = "width : 95%">
+                            <div class="row">
+                                <div class="section-header">
+                                    <h2 class="section-title text-center wow fadeInDown">විභාග ප්‍රතිපල</h2>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div id="studentExamResult">
+										<div class="box box-warning">
+											<div class="box-header with-border" align="center">
+												<h3 class="box-title">Suggested Student Names</h3>
+											</div>
+											<!-- /.box-header -->
+											<div class="box-body">
+											  <table id="StudentSearchResultByName" class="table table-bordered table-striped">
+												<thead>
+													<tr>
+													  <th>විභාගය</th>
+													  <th>වර්ෂය</th>
+													  <th>විභාග අංකය</th>
+													  <th>ප්‍රතිඵලය</th>
+													</tr>
+												</thead>
+												<tbody id ="stuSerchResultTableBody">
+													
+												</tbody>
+												<tfoot>
+													<tr>
+													  <tr>
+													  <th>විභාගය</th>
+													  <th>වර්ෂය</th>
+													  <th>විභාග අංකය</th>
+													  <th>ප්‍රතිඵලය</th>
+													</tr>
+												</tfoot>
+											  </table>
+											</div>
+											<!-- /.box-body -->
+										  </div>
+										  <!-- /.box -->
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+
+
+                    <!-- ගති පැවතුම්-->
+                    <section id="services" >
+                        <div class="container" style = "width : 95%">
+
+                            <div class="section-header">
+                                <h2 class="section-title text-center wow fadeInDown">ගති පැවතුම්</h2>
+                                <p class="text-center wow fadeInDown">මෙහි දරුවා පිළිබඳ පන්ති භාර ගුරුවරයා විසින් ඒ ඒ වර්ෂ වලදී සපයන ලද තොරතුරු අනුව  විවිධ නිර්ණායක ඔස්සේ තොරතුරු ඉදිරිපත් කර ඇත.</p>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-5 wow ">
+                                    <canvas id="canvas3" height="30%" width="50%"></canvas>
+                                </div>
+                                <div class="col-sm-5 wow fadeInLeft">
+                                    <canvas id="canvas4" height="30%" width="50%"></canvas>
+                                </div>
+                                <div class="col-sm-5 wow fadeInLeft">
+                                    <canvas id="canvas5" height="30%" width="50%"></canvas>
+                                </div>
+                                <div class="col-sm-5 wow fadeInLeft">
+                                    <canvas id="canvas6" height="30%" width="50%"></canvas>
+                                </div>
+                                <div class="col-sm-5 wow fadeInLeft">
+                                    <canvas id="canvas7" height="30%" width="50%"></canvas>
+                                </div>
+                                <div class="col-sm-5 wow fadeInLeft">
+                                    <canvas id="canvas8" height="30%" width="50%"></canvas>
+                                </div>
+                            </div><!--/.row-->
+
+                            <div class="row">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>නිවසේදී කාලය ගතකිරීම පිලිබඳ තොරතුරු</th>
+                                            <th>02</th>
+                                            <th>03</th>
+                                            <th>04</th>
+                                            <th>05</th>
+                                            <th>06</th>
+                                            <th>07</th>
+                                            <th>08</th>
+                                            <th>09</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody id ="home_behavior_table_body">
+                                        
+                                    </tbody>
+                                </table>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>රුපවාහිනි වැඩසටහන් නැරබීම පිලිබඳ තොරතුරු</th>
+                                            <th>02</th>
+                                            <th>03</th>
+                                            <th>04</th>
+                                            <th>05</th>
+                                            <th>06</th>
+                                            <th>07</th>
+                                            <th>08</th>
+                                            <th>09</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody id ="Tv_programme_table_body">
+                                        
+                                    </tbody>
+                                </table>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>දරුවාගේ කියවීමේ රුචිය   පිලිබඳ තොරතුරු</th>
+                                            <th>02</th>
+                                            <th>03</th>
+                                            <th>04</th>
+                                            <th>05</th>
+                                            <th>06</th>
+                                            <th>07</th>
+                                            <th>08</th>
+                                            <th>09</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody id ="Reding_interest_table_body">
+                                        
+
+                                    </tbody>
+                                </table>
+								
+								<table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>දරුවාට පැවරී ඇති වගකීම් පිලිබඳ තොරතුරු   පිලිබඳ තොරතුරු</th>
+                                            <th>02</th>
+                                            <th>03</th>
+                                            <th>04</th>
+                                            <th>05</th>
+                                            <th>06</th>
+                                            <th>07</th>
+                                            <th>08</th>
+                                            <th>09</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody id ="responsibilities_table_body">
+                                        
+
+                                    </tbody>
+                                </table>
+
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>දරුවා නිවසේදී හැසිරෙන ආකාරය  පිලිබඳ තොරතුරු</th>
+                                            <th>02</th>
+                                            <th>03</th>
+                                            <th>04</th>
+                                            <th>05</th>
+                                            <th>06</th>
+                                            <th>07</th>
+                                            <th>08</th>
+                                            <th>09</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody id = "home_behavior_table_body2">
+
+                                    </tbody>
+                                </table>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>දරුවා සතු දක්ෂතා පිලිබඳ තොරතුරු</th>
+                                            <th>02</th>
+                                            <th>03</th>
+                                            <th>04</th>
+                                            <th>05</th>
+                                            <th>06</th>
+                                            <th>07</th>
+                                            <th>08</th>
+                                            <th>09</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody id = "talents_table_body">
+                                        
+                                    </tbody>
+                                </table>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>දරුවාගේ  නිවසේ ඇති පහසුකම් පිලිබඳ තොරතුරු</th>
+                                            <th>02</th>
+                                            <th>03</th>
+                                            <th>04</th>
+                                            <th>05</th>
+                                            <th>06</th>
+                                            <th>07</th>
+                                            <th>08</th>
+                                            <th>09</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody id = "facilities_table_body">
+
+                                    </tbody>
+                                </table>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>දරුවා හා පවුල අතර සම්බන්ධය පිලිබඳ තොරතුරු</th>
+                                            <th>02</th>
+                                            <th>03</th>
+                                            <th>04</th>
+                                            <th>05</th>
+                                            <th>06</th>
+                                            <th>07</th>
+                                            <th>08</th>
+                                            <th>09</th>
+                                            <th>10</th>
+                                            <th>11</th>
+                                            <th>12</th>
+                                            <th>13</th>
+                                            <th>14</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody id = "family_details_table_body">
+                                        
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!--/.container-->
+                    </section><!--/#services-->
+
+                    <!-- විහාරස්ථ පුණ්‍ය කටයුතු     portfolio-->
+                    <section id="portfolio">
+                        <div class="container" style = "width : 95%">
+                            <div class="section-header">
+                                <h2 class="section-title text-center wow fadeInDown">තුරුණු සවිය</h2>
+                                <p class="text-center wow fadeInDown">9,10,11 තුරුණු සවිය පාඨමාලාවන් තුල දක්වා ඇති නිපුනතා  පිළිබද තොරතුරු මෙහි දක්වා ඇත.</p>
+                            </div>
+                            <div class="row">
+                                <div role="tabpanel">
+                                    <ul class="nav main-tab nav-justified" role="tablist">
+                                        <li role="presentation" class="active">
+                                            <a href="#tab1" role="tab" data-toggle="tab" aria-controls="tab1" aria-expanded="true">සාමාජික පදක්කම</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#tab2" role="tab" data-toggle="tab" aria-controls="tab2" aria-expanded="false">යෝග්‍යතා පදක්කම</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#tab3" role="tab" data-toggle="tab" aria-controls="tab3" aria-expanded="false">ව්‍යපෘති කණ්ඩායම් </a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#tab4" role="tab" data-toggle="tab" aria-controls="tab4" aria-expanded="false">නිර්මාතෘ ප්‍රණාම</a>
+                                        </li>
+                                    </ul>
+                                    <div id="tab-content" class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="tab1" aria-labelledby="tab1">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ඇගයීම් නිර්ණායකය</th>
+                                                            <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                        </tr>
+                                                    </thead> 
+                                                    <tbody id="gread9TSTableBody">
+                                                        
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="tab2" aria-labelledby="tab2">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ඇගයීම් නිර්ණායකය</th>
+                                                            <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                        </tr>
+                                                    </thead> 
+                                                    <tbody id="gread10TSTableBody">
+                                                        
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="tab3" aria-labelledby="tab3">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ඇගයීම් නිර්ණායකය</th>
+                                                            <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                        </tr>
+                                                    </thead> 
+                                                    <tbody id="gread11TSTableBody">
+                                                        
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="tab4" aria-labelledby="tab3">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <thead id="gread12TSTableBody">
+                                                        <tr>
+                                                            <th>ඇගයීම් නිර්ණායකය</th>
+                                                            <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                        </tr>
+                                                    </thead> 
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>තුරුණු සවිය පැමිණීම</td>
+                                                            <td>80%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>කේවල වියපෘති මාතෘකාව</td>
+                                                            <td>ummagga jathakayen ape jeewithayata gatha haki adarsha</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ප්‍රජා වියපෘති මාතෘකාව</td>
+                                                            <td>ummagga jathakayen ape jeewithayata gatha haki adarsha</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>චරිතාපදාන අධ්‍යන වියපෘති මාතෘකාව - පැවිදි</td>
+                                                            <td>ummagga jathakayen ape jeewithayata gatha haki adarsha</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>චරිතාපදාන අධ්‍යන වියපෘති මාතෘකාව - ගිහි</td>
+                                                            <td>ummagga jathakayen ape jeewithayata gatha haki adarsha</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>විකල්ප ව්‍යපෘති මාතෘකාව</td>
+                                                            <td>ummagga jathakayen ape jeewithayata gatha haki adarsha</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>කේවල වියපෘති ලකුණු මට්ටම</td>
+                                                            <td>90%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ප්‍රජා වියපෘති ලකුණු මට්ටම</td>
+                                                            <td>90%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>චරිතාපදාන අධ්‍යන  වියපෘති ලකුණු මට්ටම</td>
+                                                            <td>90%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>විකල්ප ව්‍යපෘති   ලකුණු මට්ටම</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තොරතුරු ගවේෂණය පිලිබඳ නිපුනතාව</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ව්‍යපෘති තාක්ෂනික කර්මවේදය  පිලිබඳ නිපුනතාව</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තොරතුරු ගවේෂණය පිලිබඳ නිපුනතාව</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ව්‍යපෘති තාක්ෂනික කර්මවේදය  පිලිබඳ නිපුනතාව</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තොරතුරු ගවේෂණය පිලිබඳ නිපුනතාව</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ව්‍යපෘති තාක්ෂනික කර්මවේදය  පිලිබඳ නිපුනතාව</td>
+                                                            <td>70%</td>
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div><!--/.container-->
+                    </section><!--/#portfolio-->
+
+
+
+                    <!-- පුජනිය චරිත  meet-team -->
+                    <section id="meet-team">
+                        <div class="container" style = "width : 95%">
+                            <div class="section-header">
+                                <h2 class="section-title text-center wow fadeInDown">ශිෂ්‍ය නායක</h2>
+                                <p class="text-center wow fadeInDown">ශිෂ්‍ය නායක ධුරයක් දරා ඇත්නම් ඒ පිලිබඳ තොරතුරු මෙහි දක්වා ඇත.</p>
+                            </div>
+
+                            <div class="row">
+                                <div role="tabpanel">
+                                    <ul class="nav main-tab nav-justified" role="tablist">
+                                        <li role="presentation" class="active">
+                                            <a href="#ptab1" role="tab" data-toggle="tab" aria-controls="ptab1" aria-expanded="true">06 ශ්‍රේණිය</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#ptab2" role="tab" data-toggle="tab" aria-controls="ptab2" aria-expanded="false">07 ශ්‍රේණිය</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#ptab3" role="tab" data-toggle="tab" aria-controls="ptab3" aria-expanded="false">08 ශ්‍රේණිය</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#ptab4" role="tab" data-toggle="tab" aria-controls="ptab4" aria-expanded="false">10 ශ්‍රේණිය</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#ptab5" role="tab" data-toggle="tab" aria-controls="ptab5" aria-expanded="false">11 ශ්‍රේණිය</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="#ptab6" role="tab" data-toggle="tab" aria-controls="ptab6" aria-expanded="false">12 ශ්‍රේණිය</a>
+                                        </li>
+                                    </ul>
+                                    <div id="tab-content" class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="ptab1" aria-labelledby="ptab1">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <!--	<thead>
+                                                                    <tr>
+                                                                      <th>ඇගයීම් නිර්ණායකය</th>
+                                                                      <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                                    </tr>
+                                                              </thead>  -->
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>ශිෂ්‍ය නායක ධුරයක් දරා තිබේද?</td>
+                                                            <td>Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>අංශය</td>
+                                                            <td>Primary</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>කණ්ඩායම</td>
+                                                            <td>Gamunu</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තනතුර</td>
+                                                            <td>Prefect</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ඉරිදා පැමිණීම</td>
+                                                            <td>86%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>පොහොය පැමිණීම</td>
+                                                            <td>90%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>නිලරස්වීම් පැමිණීම</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>බාහිර ක්‍රියාකාරකම් සඳහා පැමිණීම</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>හඳුනා ගත් විශේෂ නිපුනතා</td>
+                                                            <td>Good speaker, Good team member</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-sm-5 wow fadeInLeft">
+                                                <canvas id="canvas9" height="30%" width="50%"></canvas>
+                                            </div>
+                                            <div class="col-sm-5 wow fadeInLeft">
+                                                <canvas id="canvas10" height="30%" width="50%"></canvas>
+                                            </div>
+                                            <div class="col-sm-5 wow fadeInLeft">
+                                                <canvas id="canvas11" height="30%" width="50%"></canvas>
+                                            </div>
+                                            <div class="col-sm-5 wow fadeInLeft">
+                                                <canvas id="canvas12" height="30%" width="50%"></canvas>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="ptab2" aria-labelledby="ptab2">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <!--	<thead>
+                                                                    <tr>
+                                                                      <th>ඇගයීම් නිර්ණායකය</th>
+                                                                      <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                                    </tr>
+                                                              </thead>  -->
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>ශිෂ්‍ය නායක ධුරයක් දරා තිබේද?</td>
+                                                            <td>No</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>අංශය</td>
+                                                            <td>Null</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>කණ්ඩායම</td>
+                                                            <td>Null</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තනතුර</td>
+                                                            <td>Null</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ඉරිදා පැමිණීම</td>
+                                                            <td>Null</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>පොහොය පැමිණීම</td>
+                                                            <td>Null</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>නිලරස්වීම් පැමිණීම</td>
+                                                            <td>Null</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>බාහිර ක්‍රියාකාරකම් සඳහා පැමිණීම</td>
+                                                            <td>Null</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>හඳුනා ගත් විශේෂ නිපුනතා</td>
+                                                            <td>Null</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas13" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas14" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas15" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas16" height="450" width="600"></canvas>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="ptab3" aria-labelledby="ptab3">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <!--	<thead>
+                                                                    <tr>
+                                                                      <th>ඇගයීම් නිර්ණායකය</th>
+                                                                      <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                                    </tr>
+                                                              </thead>  -->
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>ශිෂ්‍ය නායක ධුරයක් දරා තිබේද?</td>
+                                                            <td>Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>අංශය</td>
+                                                            <td>Primary</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>කණ්ඩායම</td>
+                                                            <td>Gamunu</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තනතුර</td>
+                                                            <td>Prefect</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ඉරිදා පැමිණීම</td>
+                                                            <td>86%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>පොහොය පැමිණීම</td>
+                                                            <td>90%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>නිලරස්වීම් පැමිණීම</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>බාහිර ක්‍රියාකාරකම් සඳහා පැමිණීම</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>හඳුනා ගත් විශේෂ නිපුනතා</td>
+                                                            <td>Good speaker, Good team member</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas17" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas18" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas19" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas20" height="450" width="600"></canvas>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="ptab4" aria-labelledby="ptab4">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <!--	<thead>
+                                                                    <tr>
+                                                                      <th>ඇගයීම් නිර්ණායකය</th>
+                                                                      <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                                    </tr>
+                                                              </thead>  -->
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>ශිෂ්‍ය නායක ධුරයක් දරා තිබේද?</td>
+                                                            <td>Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>අංශය</td>
+                                                            <td>Primary</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>කණ්ඩායම</td>
+                                                            <td>Gamunu</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තනතුර</td>
+                                                            <td>Prefect</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ඉරිදා පැමිණීම</td>
+                                                            <td>86%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>පොහොය පැමිණීම</td>
+                                                            <td>90%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>නිලරස්වීම් පැමිණීම</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>බාහිර ක්‍රියාකාරකම් සඳහා පැමිණීම</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>හඳුනා ගත් විශේෂ නිපුනතා</td>
+                                                            <td>Good speaker, Good team member</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas21" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas22" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas23" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas24" height="450" width="600"></canvas>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="ptab5" aria-labelledby="ptab5">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <!--	<thead>
+                                                                    <tr>
+                                                                      <th>ඇගයීම් නිර්ණායකය</th>
+                                                                      <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                                    </tr>
+                                                              </thead>  -->
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>ශිෂ්‍ය නායක ධුරයක් දරා තිබේද?</td>
+                                                            <td>Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>අංශය</td>
+                                                            <td>Primary</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>කණ්ඩායම</td>
+                                                            <td>Gamunu</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තනතුර</td>
+                                                            <td>Prefect</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ඉරිදා පැමිණීම</td>
+                                                            <td>86%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>පොහොය පැමිණීම</td>
+                                                            <td>90%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>නිලරස්වීම් පැමිණීම</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>බාහිර ක්‍රියාකාරකම් සඳහා පැමිණීම</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>හඳුනා ගත් විශේෂ නිපුනතා</td>
+                                                            <td>Good speaker, Good team member</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas25" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas26" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas27" height="450" width="600"></canvas>
+                                            </div>
+                                            <div class="col-sm-6 wow fadeInLeft">
+                                                <canvas id="canvas28" height="450" width="600"></canvas>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="ptab6" aria-labelledby="ptab6">
+                                            <div class="col-lg-12">
+                                                <table class="table">
+                                                    <!--	<thead>
+                                                                    <tr>
+                                                                      <th>ඇගයීම් නිර්ණායකය</th>
+                                                                      <th>ලබා ගත් නිපුනතා මට්ටම</th>
+                                                                    </tr>
+                                                              </thead>  -->
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>ශිෂ්‍ය නායක ධුරයක් දරා තිබේද?</td>
+                                                            <td>Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>අංශය</td>
+                                                            <td>Primary</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>කණ්ඩායම</td>
+                                                            <td>Gamunu</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>තනතුර</td>
+                                                            <td>Prefect</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>ඉරිදා පැමිණීම</td>
+                                                            <td>86%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>පොහොය පැමිණීම</td>
+                                                            <td>90%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>නිලරස්වීම් පැමිණීම</td>
+                                                            <td>70%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>බාහිර ක්‍රියාකාරකම් සඳහා පැමිණීම</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>හඳුනා ගත් විශේෂ නිපුනතා</td>
+                                                            <td>Good speaker, Good team member</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div class="col-sm-5 wow fadeInLeft">
+                                                <canvas id="canvas29" height="30%" width="50%"></canvas>
+                                            </div>
+                                            <div class="col-sm-5 wow fadeInLeft">
+                                                <canvas id="canvas30" height="30%" width="50%"></canvas>
+                                            </div>
+                                            <div class="col-sm-5 wow fadeInLeft">
+                                                <canvas id="canvas31" height="30%" width="50%"></canvas>
+                                            </div>
+                                            <div class="col-sm-5 wow fadeInLeft">
+                                                <canvas id="canvas32" height="30%" width="50%"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </section><!--/#meet-team-->
+                </div>
+
+
+
+
+            </div>
+            <!-- /.content-wrapper -->
+
+
+
+
+
+
+
+
+            <footer class="main-footer" id = "mainFooterOfSVD"></footer>
+
+        </div>
+        <!-- ./wrapper -->
+
+
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- SVD App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- SVD for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+		
+		<!-- DataTables -->
+		<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+        <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/mousescroll.js"></script>
+        <script src="js/smoothscroll.js"></script>
+        <script src="js/jquery.prettyPhoto.js"></script>
+        <script src="js/jquery.isotope.min.js"></script>
+        <script src="js/jquery.inview.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/main.js"></script>
+
+
+        <a href="#0" class="cd-top">Top</a>
+
+        <script src="js/main2.js"></script> <!-- Gem jQuery -->
+
+
+    </body>
+</html>

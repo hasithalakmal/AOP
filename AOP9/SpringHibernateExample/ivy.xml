@@ -1,0 +1,56 @@
+<ivy-module version="2.0">
+	<info organisation="org.apache" module="SpringHibernateExample" />
+	
+	<configurations>
+        <conf name="compile" description="Required to compile application"/>
+    </configurations>
+    
+	<dependencies>
+	
+		<!-- spring -->
+		<dependency org="org.springframework" name="spring-core" rev="4.3.1.RELEASE"/>
+
+		<dependency org="org.springframework" name="spring-web" rev="4.3.1.RELEASE"/>
+
+		<dependency org="org.springframework" name="spring-webmvc" rev="4.3.1.RELEASE"/>
+
+		<dependency org="org.springframework" name="spring-tx" rev="4.3.1.RELEASE"/>
+
+		<dependency org="org.springframework" name="spring-orm" rev="4.3.1.RELEASE"/>
+		
+		<dependency org="org.springframework" name="spring-context" rev="4.3.1.RELEASE"/>
+
+		 <!-- Spring Security -->
+		<dependency org="org.springframework.security" name="spring-security-web" rev="4.1.1.RELEASE"/>
+		
+		<dependency org="org.springframework.security" name="spring-security-config" rev="4.1.1.RELEASE"/>
+
+		<!-- MySQL -->
+		<dependency org="mysql" name="mysql-connector-java" rev="5.1.31"/>
+		
+		<!-- Jackson libraries -->
+		<dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.7.5"/>
+
+		<dependency org="com.fasterxml.jackson.dataformat" name="jackson-dataformat-xml" rev="2.7.5"/>
+		
+		<!-- apache commons codedc -->
+		<dependency org="commons-codec" name="commons-codec" rev="1.10"/>
+        
+		 <!-- Spring AOP + AspectJ -->
+		<dependency org="org.springframework" name="spring-aop" rev="4.3.1.RELEASE"/>
+
+		<dependency org="org.aspectj" name="aspectjrt" rev="1.6.11"/>
+		
+		<dependency org="org.aspectj" name="aspectjweaver" rev="1.6.11"/>
+		
+		 <!-- JavaConfig need this library -->
+		<dependency org="cglib" name="cglib" rev="2.2.2"/>
+		
+		 <!-- Servlet -->
+		<dependency org="javax.servlet" name="javax.servlet-api" rev="3.1.0"/>
+	</dependencies>
+	
+	
+	
+	
+</ivy-module>

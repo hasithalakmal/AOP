@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SVD | MIS </title>
+
+        <link rel="shortcut icon" href="../../resource/images/flag.png">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+
+
+
+
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../../resource/css/font-awesome-4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../../resource/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- SVD Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <!-- SVD main css -->
+        <link rel="stylesheet" href="../../resource/css/svd-mis-main.css">
+
+        <!-- jQuery 2.2.0 -->
+        <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script> 
+
+        <!-- Sweet Alerts -->
+        <script src="../../resource/js/lib/sweetalert.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../../resource/js/lib/sweetalert.css">
+
+        <!-- Validation JS -->
+        <script src="../../resource/js/lib/jquery.validate.min.js"></script> 
+        <script src="../../resource/js/lib/additional-methods.min.js"></script> 
+
+
+        <style>
+            .error{
+                color: red;
+            }
+
+        </style>
+
+        <script>
+            $(function () {
+
+                var userType = localStorage.getItem("menueName");
+                
+                $("#leftMenueOfSVD").load(userType);
+                $("#mainFooterOfSVD").load("../common/footer.html");
+                $("#adminNotificationComponent").load("../common/AdminNotification.html");
+                $("#systemNotificationCompnent").load("../common/SystemNotification.html");
+                $("#userTaskComponent").load("../common/UserTaskNotification.html");
+                $("#userProfileMiniComponent").load("../common/UserProfileMini.html");
+            });
+        </script>
+
+        <!-- this page controlling JS -->
+        <script src="../../resource/js/student_management/Register_Student.js"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+
+
+
+    <body class="hold-transition skin-blue sidebar-mini">
+
+
+
+
+        <div class="wrapper">
+
+
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="../welcome/welcome.html" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>SRM</b></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg "><b>SVD | RND | MIS</b></span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+
+                            <!-- Messages: style can be found in dropdown.less-->
+                            <li class="dropdown messages-menu" id="adminNotificationComponent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- Notifications: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu" id="systemNotificationCompnent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- Tasks: style can be found in dropdown.less -->
+                            <li class="dropdown tasks-menu" id="userTaskComponent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu" id="userProfileMiniComponent">
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar" id="leftMenueOfSVD"></aside>
+
+
+
+
+
+
+
+
+
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper" style="padding:1%">
+                <!-- general form elements disabled -->
+                <div class="box box-warning">
+                    <div class="box-header with-border" align="center">
+                        <h3 class="box-title">Student Registration Form</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <form role="form" id="studentRegistrationForm">
+
+                            <div class="box-header with-border" align="center">
+                                <h3 class="box-title">Student Details</h3>
+                            </div>
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Student Admission Number <span style="color:red">*</span></label>
+                                <input type="text"  class="form-control" placeholder="Enter Admission Number  eg:123456" id="stu_para1" name="stu_para1" >
+                            </div>
+							<div class="form-group">
+                                <label>Student Admission Year <span style="color:red">*</span></label>
+                                <input type="text"  class="form-control" placeholder="Enter the Year of Admission" id="stu_para1_2" name="stu_para1_2" >
+                            </div>
+                            <div class="form-group">
+                                <label>Admission Class<span style="color:red">*</span></label>
+                                <select class="form-control" id="stu_para1_1" name="stu_para1_1">
+
+                                </select>
+                            </div>
+							
+                            <div class="form-group">
+                                <label>Student Full Name<span style="color:red">*</span></label>
+                                <input type="text"   class="form-control" placeholder="Enter Student's Full Name" id="stu_para2" name="stu_para2" >
+                            </div>
+                            <div class="form-group">
+                                <label>Student Name with Initials<span style="color:red">*</span></label>
+                                <input type="text"  class="form-control" placeholder="Enter Student's Name with Initials" id="stu_para3" name="stu_para3">
+                            </div>
+
+                            <!-- radio -->
+                            <div class="form-group">
+                                <label>Gender <span style="color:red">*</span></label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="stu_para4" id="Male" value="Male" checked>
+                                        Male   
+                                    </label>
+                                    <label></label>
+                                    <label>
+                                        <input type="radio" name="stu_para4" id="FeMale" value="Female">
+                                        Female
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Date dd/mm/yyyy -->
+                            <div class="form-group">
+                                <label>Date Of Birth:<span style="color:red">*</span></label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" id="stu_para5" name="stu_para5" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask>
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <!-- /.form group -->
+							
+							<div class="form-group">
+                                <label>Sibling Admission Number (Only One)</label>
+                                <input type="text" class="form-control" placeholder="Enter Admission Number of ONLY ONE sibling" id="stu_para13" name="stu_para13" >
+                            </div>
+
+							<div class="form-group">
+                                <label>Student Address<span style="color:red">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter Student's Address" id="stu_para8" name="stu_para8">
+                            </div>
+							<div class="form-group">
+                                <label>Student City</label>
+                                <input type="text" class="form-control" placeholder="Enter the Student's City" id="stu_para9" name="stu_para9">
+                            </div>
+							<div class="form-group">
+                                <label>Distance to Home from Daham Pasala( In km )</label>
+                                <input type="text" class="form-control" placeholder="Enter Distance in kilometers eg: 1,2,3...." id="stu_para10" name="stu_para10">
+                            </div>
+							
+                            <div class="form-group">
+                                <label>Land Phone Number ( In case of emergengy )</label>
+                                <input type="text"  class="form-control" placeholder="Enter Land Phone Number eg:0112345678" id="stu_para6" name="stu_para6" >
+                            </div>
+                            <div class="form-group">
+                                <label>Mobile Phone Number ( In case of emergengy )</label>
+                                <input type="text" class="form-control" placeholder="Enter Mobile Phone Number eg:0741234567" id="stu_para7" name="stu_para7">
+                            </div>
+                            
+                            
+                            
+                            <div class="form-group">
+                                <label>School</label>
+                                <select class="form-control" id="stu_para11" name="stu_para11">
+
+                                </select>
+                            </div>
+							<div class="form-group">
+                                <label>School Admission Year</label>
+                                <input type="text" class="form-control" placeholder="Enter the year the student was admitted to his/her school" id="stu_para14" name="stu_para14">
+                            </div>
+
+                            <!-- checkbox -->
+                            <div class="form-group">
+                                <label> Diseases</label>
+                                <div id="stu_para12" >
+
+                                </div>
+                            </div>
+							
+
+
+
+
+
+						<div id="gardiandetails">
+
+
+                            <div class="box-header with-border" align="center">
+                                <h3 class="box-title">Mother's Details</h3>
+                            </div>
+
+
+
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Mother's Name </label>
+                                <input type="text"  class="form-control" placeholder="Enter Mother's Name" id="mot_para1" name="mot_para1">
+                            </div>
+							<div class="form-group">
+                                <label>Mother's NIC Number </label>
+                                <input type="text" class="form-control" placeholder="Enter Mother's NIC Number" id="mot_para5" name="mot_para5">
+                            </div>
+                            <div class="form-group">
+                                <label>Mother's Phone Number</label>
+                                <input type="text"  class="form-control" placeholder="Enter Mother's Phone Number" id="mot_para2" name="mot_para2" >
+                            </div>
+                            <div class="form-group">
+                                <label>Mother's Address</label>
+                                <input type="text"  class="form-control" placeholder="Enter Mother's Address" id="mot_para3" name="mot_para3">
+                            </div>
+                            <div class="form-group">
+                                <label>Mother's Email</label>
+                                <input type="email"  class="form-control" placeholder="Enter Mother's Email" id="mot_para4" name="mot_para4">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Mother's Occupation</label>
+                                <input type="text"  class="form-control" placeholder="Enter Mother's Occupation" id="mot_para6" name="mot_para6">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Mother's Occupation Type</label>
+                                <select class="form-control" id="mot_para7" name="mot_para7">
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mother's Office Address</label>
+                                <input type="text"  class="form-control" placeholder="Enter Mother's Office Address" id="mot_para8" name="mot_para8" >
+                            </div>
+                            <div class="form-group">
+                                <label>Mother's Office Phone Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Mother's Office Phone Number" id="mot_para9" name="mot_para9">
+                            </div>
+                            <div class="form-group">
+                                <label>Mother's Student Admission Number (If she is a past pupil)</label>
+                                <input type="text" class="form-control" placeholder="Enter Mother's Student Admission Number" id="mot_para10" name="mot_para10">
+                            </div>
+                            <div class="form-group">
+                                <label>Mother's Past Pupil Number (If she is a past pupil)</label>
+                                <input type="text" class="form-control" placeholder="Enter Mother's Past Pupil Number" id="mot_para11" name="mot_para11">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mother's Teacher Registration Number (If she is a teacher at Daham Pasala)</label>
+                                <input type="text" class="form-control" placeholder="Enter Teacher Registration Number" id="mot_para12" name="mot_para12">
+                            </div>
+                            <div class="form-group">
+                                <label>Mother's Interactions with Dharmayathanaya</label>
+                                <input type="text" class="form-control" placeholder="Enter Mother's Interactions with Dharmayathanaya eg: Member of Shasana Sewaka Samithiya" id="mot_para13" name="mot_para13">
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="box-header with-border" align="center">
+                                <h3 class="box-title">Father's Details</h3>
+                            </div>
+
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Father's Name </label>
+                                <input type="text"  class="form-control" placeholder="Enter Father's Name" id="far_para1" name="far_para1">
+                            </div>
+							<div class="form-group">
+                                <label>Father's NIC number </label>
+                                <input type="text" class="form-control" placeholder="Enter Father's NIC number" id="far_para5" name="far_para5">
+                            </div>
+                            <div class="form-group">
+                                <label>Father's Phone Number</label>
+                                <input type="text"  class="form-control" placeholder="Enter Father's Phone Number" id="far_para2" name="far_para2" >
+                            </div>
+                            <div class="form-group">
+                                <label>Father's Address</label>
+                                <input type="text"  class="form-control" placeholder="Enter Father's Address" id="far_para3" name="far_para3">
+                            </div>
+                            <div class="form-group">
+                                <label>Father's Email</label>
+                                <input type="email"  class="form-control" placeholder="Enter Father's Email" id="far_para4" name="far_para4">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Father's Occupation</label>
+                                <input type="text"  class="form-control" placeholder="Enter Father's Occupation" id="far_para6" name="far_para6">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Father's Occupation Type </label>
+                                <select class="form-control" id="far_para7" name="far_para7">
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Father's Office Address</label>
+                                <input type="text"  class="form-control" placeholder="Enter Father's Office Address" id="far_para8" name="far_para8" >
+                            </div>
+                            <div class="form-group">
+                                <label>Father's Office Phone Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Father's Office Phone Number" id="far_para9" name="far_para9">
+                            </div>
+                            <div class="form-group">
+                                <label>Father's Student Admission Number ( If he is a Past Pupil )</label>
+                                <input type="text" class="form-control" placeholder="Enter Father's Student Admission Number" id="far_para10" name="far_para10">
+                            </div>
+                            <div class="form-group">
+                                <label>Father's Past Pupil Number ( If he is a Past Pupil )</label>
+                                <input type="text" class="form-control" placeholder="Enter Father's Past Pupil Number" id="far_para11" name="far_para11">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Father's Teacher Registration Number (If he is a teacher at Daham Pasala)</label>
+                                <input type="text" class="form-control" placeholder="Enter Father's Teacher Registration Number" id="far_para12" name="far_para12">
+                            </div>
+                            <div class="form-group">
+                                <label>Father's Interactions with Daham Pasala </label>
+                                <input type="text" class="form-control" placeholder="Enter Father's Interactions with Dharmayathanaya eg: Member of Shasana Sewaka Samithiya" id="far_para13" name="far_para13">
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="box-header with-border" align="center">
+                                <h3 class="box-title">Guardian's Details</h3>
+                            </div>
+
+                            <!-- text input -->
+                            <div class="form-group">
+                                <label>Guardian's Name</label>
+                                <input type="text"  class="form-control" placeholder="Enter Guardian's Name" id="gar_para1" name="gar_para1">
+                            </div>
+							<div class="form-group">
+                                <label>Guardian's NIC Number </label>
+                                <input type="text" class="form-control" placeholder="Enter Guardian's NIC Number" id="gar_para5" name="gar_para5">
+                            </div>
+                            <div class="form-group">
+                                <label>Guardian's Phone Number</label>
+                                <input type="text"  class="form-control" placeholder="Enter Guardian's Phone Number" id="gar_para2" name="gar_para2" >
+                            </div>
+                            <div class="form-group">
+                                <label>Guardian's Address</label>
+                                <input type="text"  class="form-control" placeholder="Enter Guardian's Address" id="gar_para3" name="gar_para3">
+                            </div>
+                            <div class="form-group">
+                                <label>Guardian's Email</label>
+                                <input type="text"  class="form-control" placeholder="Enter Guardian's Email" id="gar_para4" name="gar_para4">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Guardian's Occupation</label>
+                                <input type="text"  class="form-control" placeholder="Enter Guardian's Occupation" id="gar_para6" name="gar_para6">
+                            </div>
+
+
+                            <div class="form-group" >
+                                <label>Guardian's Occupation Type </label>
+                                <select class="form-control" id="gar_para7" name="gar_para7">
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Guardian's Office Address</label>
+                                <input type="text"  class="form-control" placeholder="Enter Guardian's Office Address" id="gar_para8" name="gar_para8" >
+                            </div>
+                            <div class="form-group">
+                                <label>Guardian's Office Phone Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Guardian's Office Phone Number" id="gar_para9" name="gar_para9">
+                            </div>
+                            <div class="form-group">
+                                <label>Guardian's Student Admission Number (If he/she is a Past Pupil )</label>
+                                <input type="text" class="form-control" placeholder="Enter Guardian's Student Admission Number" id="gar_para10" name="gar_para10">
+                            </div>
+                            <div class="form-group">
+                                <label>Guardian's Past Pupil Number</label>
+                                <input type="text" class="form-control" placeholder="Enter Guardian's Past Pupil Number" id="gar_para11" name="gar_para11">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Guardian's Teacher Registration Number ( If he/she is a teacher at Daham Pasala )</label>
+                                <input type="text" class="form-control" placeholder="Enter Guardian's Teacher Registration Number" id="gar_para12" name="gar_para12">
+                            </div>
+                            <div class="form-group">
+                                <label>Guardian's Interactions with Daham Pasala</label>
+                                <input type="text" class="form-control" placeholder="Enter Guardian's Interactions with Dharmayathanaya eg: Member of Shasana Sewaka Samithiya" id="gar_para13" name="gar_para13">
+                            </div>
+
+
+
+
+						</div>
+
+
+
+
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary" >Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+
+        </div>
+        <!-- /.content-wrapper -->
+
+
+
+
+
+
+
+
+        <footer class="main-footer" id = "mainFooterOfSVD"></footer>
+
+
+        <!-- ./wrapper -->
+
+
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- SVD App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- SVD for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+
+
+
+
+
+
+        <!-- InputMask -->
+        <script src="../../plugins/input-mask/jquery.inputmask.js"></script>
+        <script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+        <script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+
+
+    </body>
+</html>

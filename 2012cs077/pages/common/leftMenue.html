@@ -1,0 +1,30 @@
+<script>
+    document.getElementById("sessionUserName").innerHTML = localStorage.getItem("usr_name") + " - " + localStorage.getItem("ucat_name");
+</script> 
+
+
+
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <div class="pull-left image">
+            <img src="../../resource/images/administrator.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+            <p id = "sessionUserName"></p>
+
+            <a href="#"><i class="fa fa-circle text-success"></i> Online </a>
+        </div>
+    </div>
+
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+		<li ><a href="../../pages/account_holder/Transfer_Money.html"><i class="fa fa-circle-o"></i> Transfer Money</a></li>
+        <li ><a href="../../pages/account_holder/Account_inq.html"><i class="fa fa-circle-o"></i> Account Inquiry </a></li>
+        <li ><a href="../../pages/account_holder/Account_history.html"><i class="fa fa-circle-o"></i> Account History</a></li>
+		<li ><a href="../../pages/account_holder/Message.html"><i class="fa fa-circle-o"></i> Send Message</a></li>
+    </ul>
+</section>
+<!-- /.sidebar -->

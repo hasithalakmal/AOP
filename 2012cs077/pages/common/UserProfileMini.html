@@ -1,0 +1,40 @@
+<script>
+document.getElementById("sessionUserName").innerHTML = localStorage.getItem("usr_full_name");
+document.getElementById("sessionUserName1").innerHTML = localStorage.getItem("usr_full_name") + "<br>"+ localStorage.getItem("ucat_name") + "<small> Member since "+localStorage.getItem("ou_recode_added_at")+"</small>" ;
+</script> 
+
+
+
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="../../resource/images/administrator.png" class="user-image" alt="User Image">
+              <span class="hidden-xs" id = "sessionUserName"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="../../resource/images/administrator.png" class="img-circle" alt="User Image">
+
+                <p id = "sessionUserName1"> </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-6 text-center">
+                    <a href="../account_holder/Password_Reset.html">change Password</a>
+                  </div>
+                  <div class="col-xs-6 text-center">
+                    <a href="../account_holder/Update_Details.html">Update Details</a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="../account_holder/User_profile.html" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat" onclick="logout();">Sign out</a>
+                </div>
+              </li>
+            </ul>

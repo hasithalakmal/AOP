@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SVD | MIS </title>
+
+        <link rel="shortcut icon" href="../../resource/images/flag.png">
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+
+
+
+
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../../resource/css/font-awesome-4.5.0/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../../resource/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+        <!-- SVD Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+        <!-- SVD main css -->
+        <link rel="stylesheet" href="../../resource/css/svd-mis-main.css">
+
+        <!-- jQuery 2.2.0 -->
+        <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script> 
+
+        <!-- Sweet Alerts -->
+        <script src="../../resource/js/lib/sweetalert.min.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../../resource/js/lib/sweetalert.css">
+
+        <!-- Validation JS -->
+        <script src="../../resource/js/lib/jquery.validate.min.js"></script> 
+        <script src="../../resource/js/lib/additional-methods.min.js"></script> 
+		
+		<!-- Chart Legend -->
+		<script src="../../resource/js/lib/legend.js"></script> 
+		
+		<!-- DataTables -->
+		<link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+
+
+        <style>
+            .error{
+                color: red;
+            }
+
+			div.hidden
+			{
+			   display: none
+			}
+			.legend {
+				border: 1px solid black;
+			}
+
+			.legend .title {
+				display: block;
+				margin-bottom: 0.5em;
+				line-height: 1.2em;
+				padding: 0 0.3em;
+			}
+
+			.legend .color-sample {
+				display: block;
+				float: left;
+				width: 1em;
+				height: 1em;
+				border: 2px solid; /* Comment out if you don't want to show the fillColor */
+				border-radius: 0.5em; /* Comment out if you prefer squarish samples */
+				margin-right: 0.5em;
+			}
+        </style>
+
+        <script>
+            $(function () {
+
+                var userType = localStorage.getItem("menueName");
+                
+                $("#leftMenueOfSVD").load(userType);
+                $("#mainFooterOfSVD").load("../common/footer.html");
+                $("#adminNotificationComponent").load("../common/AdminNotification.html");
+                $("#systemNotificationCompnent").load("../common/SystemNotification.html");
+                $("#userTaskComponent").load("../common/UserTaskNotification.html");
+                $("#userProfileMiniComponent").load("../common/UserProfileMini.html");
+            });
+        </script>
+
+        <!-- this page controlling JS -->
+        <script src="../../resource/js/account_holder/Account_inq.js"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+
+
+
+    <body class="hold-transition skin-blue sidebar-mini">
+
+
+
+
+        <div class="wrapper">
+
+
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="../welcome/welcome.html" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>SRM</b></span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg "><b>LANKA BANK</b></span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+
+                            <!-- Messages: style can be found in dropdown.less-->
+                            <li class="dropdown messages-menu" id="adminNotificationComponent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- Notifications: style can be found in dropdown.less -->
+                            <li class="dropdown notifications-menu" id="systemNotificationCompnent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- Tasks: style can be found in dropdown.less -->
+                            <li class="dropdown tasks-menu" id="userTaskComponent">
+                                <!-- It is load from another file.-->
+                            </li>
+
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <li class="dropdown user user-menu" id="userProfileMiniComponent">
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar" id="leftMenueOfSVD"></aside>
+
+
+
+
+
+
+
+
+
+
+        <!-- Content Wrapper. Contains page content -->
+          
+		<div class="content-wrapper" style="padding:1%">
+
+		
+			<!-- Small boxes (Stat box) -->
+					<div class="row">
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-aqua">
+							<div class="inner">
+							  <h3 id = "att1"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>Account Balance</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-tachometer"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-yellow">
+							<div class="inner">
+							  <h3 id = "att2"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>Account Minimum Balance</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-bar-chart"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-red">
+							<div class="inner">
+							  <h3 id = "att3"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>Account Type</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-exclamation"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+					<div class="row">
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-green">
+							<div class="inner">
+							  <h3 id = "att4"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>Account Number</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-tachometer"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-purple">
+							<div class="inner">
+							  <h3 id = "att5"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>Account Holder ID</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-bar-chart"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+						<div class="col-lg-4 col-xs-6">
+						  <!-- small box -->
+						  <div class="small-box bg-orange">
+							<div class="inner">
+							  <h3 id = "att6"><sup style="font-size: 20px">%</sup></h3>
+
+							  <p>Account Create</p>
+							</div>
+							<div class="icon">
+							  <i class="fa fa-exclamation"></i>
+							</div>
+							<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+						  </div>
+						</div>
+						<!-- ./col -->
+					</div>
+					<!-- /.row -->
+				<!-- End Small Box -->
+					
+               
+        </div>
+
+        </div>
+        <!-- /.content-wrapper -->
+
+
+
+
+
+
+
+
+        <footer class="main-footer" id = "mainFooterOfSVD"></footer>
+
+
+        <!-- ./wrapper -->
+
+
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="../../plugins/fastclick/fastclick.js"></script>
+        <!-- SVD App -->
+        <script src="../../dist/js/app.min.js"></script>
+        <!-- SVD for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+
+
+		<!-- DataTables -->
+		<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+		<!-- SlimScroll -->
+		<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+
+
+
+        <!-- InputMask -->
+        <script src="../../plugins/input-mask/jquery.inputmask.js"></script>
+        <script src="../../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+        <script src="../../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,351 @@
+<script>
+document.getElementById("sessionUserName").innerHTML = localStorage.getItem("usr_name")+ " - "+ localStorage.getItem("ucat_name");
+</script> 
+ 
+ 
+ 
+ <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../../resource/images/administrator.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p id = "sessionUserName"></p>
+		  
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form -->
+    <!--  <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search....">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div> 
+      </form> -->
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header">MAIN NAVIGATION</li>
+		
+		
+		
+        <li class="treeview">
+          <a href="#"  title="This shows." >
+            <i class="fa fa-dashboard"></i> <span >Dashboards</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu" >
+            <li title="Shows an "><a href="../../index.html"><i class="fa fa-circle-o"></i>Student Dashboard</a></li>
+            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i>Thurunu Saviya Dashboard</a></li>
+			<li><a href="../../index2.html"><i class="fa fa-circle-o"></i>Prefect Dashboard</a></li>
+			<li><a href="../../index2.html"><i class="fa fa-circle-o"></i>Exam Dashboard</a></li>
+			<li><a href="../../index2.html"><i class="fa fa-circle-o"></i>Accountant Dashboard</a></li>
+			<li><a href="../../index2.html"><i class="fa fa-circle-o"></i>Vidusarana Dashboard</a></li>
+          </ul>
+        </li>
+		
+		
+		
+		
+        <li class="treeview">
+          <a title="You can manage student details here." href="#">
+            <i class="fa fa-smile-o"></i> <span>Student Management</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li title="Search for a student"><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Search Student</a></li>
+			<li>
+              <a title="Manage Behavior Reports (Guru Dasun Ketha) " href="#"><i class="fa fa-circle-o"></i>Behavior Reports<i class="fa fa-angle-left pull-right"></i></a>
+			  <ul class="treeview-menu">
+				<li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Search Report</a></li>
+			  </ul>
+            </li>
+			<li title="Provides an analysis of student details and behavior"><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Student Analyzer</a></li>
+          </ul>
+        </li>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+        <li class="treeview">
+          <a title="Allows the admin to manage some" href="#">
+            <i class="fa fa-lock"></i>
+            <span>Admin Operations</span>
+            <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+			<li>
+              <a href="#"><i class="fa fa-circle-o"></i>Student Related<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> School<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search School </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add School </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update School </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove School </a></li>
+                  </ul>
+                </li>
+				
+				
+				
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Diseases<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Disease </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Disease </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Disease </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Disease </a></li>
+                  </ul>
+                </li>
+				
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Classes<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Class </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Class </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Class </a></li>
+                  </ul>
+                </li>
+				
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Recommendation Type<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search RT </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add RT </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update RT </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove RT </a></li>
+                  </ul>
+                </li>
+				
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Occupation Type<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search OT </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add OT </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update OT </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove OT </a></li>
+                  </ul>
+                </li>
+				
+              </ul>
+            </li>
+			<li>
+              <a href="#"><i class="fa fa-circle-o"></i>Teacher Related<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Classes<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Class </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Class </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Class </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Class </a></li>
+                  </ul>
+                </li>
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Qualification Type<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search QT </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add QT </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update QT </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove QT </a></li>
+                  </ul>
+                </li>
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Qualifications<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Qualification </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Qualification </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Qualification </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Qualification </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+			<li>
+              <a href="#"><i class="fa fa-circle-o"></i>Prefect Related<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Prefect Position<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Position </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Position </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Position </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Position </a></li>
+                  </ul>
+                </li>
+				
+				
+				
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Talents<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Talent </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Talent </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Talent </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Talent </a></li>
+                  </ul>
+                </li>
+				
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Prefect Groups<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Group </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Group </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Update Group </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Group </a></li>
+                  </ul>
+                </li>
+				
+				
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Prefect Section<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Section </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Section </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Section </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Section </a></li>
+                  </ul>
+                </li>
+				
+              </ul>
+            </li>
+			<li>
+              <a href="#"><i class="fa fa-circle-o"></i>Exam Related<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Exams<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Exam </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Exam </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Exam </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Exam </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+			
+			<li>
+              <a href="#"><i class="fa fa-circle-o"></i>Donation Related<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Donation Reason<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search DR </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add DR </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update DR </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove DR </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+			
+			<li>
+              <a href="#"><i class="fa fa-circle-o"></i>Library Related<i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i>Store Places<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Place </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Place </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Place </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Place </a></li>
+                  </ul>
+                </li>
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i>Book Categories<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Category </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Category </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Category </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Category </a></li>
+                  </ul>
+                </li>
+				<li>
+                  <a href="#"><i class="fa fa-circle-o"></i>Books<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Search Book </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Add Book </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Update Book </a></li>
+					<li><a href="#"><i class="fa fa-circle-o"></i> Remove Book </a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+		
+		<li class="treeview">
+          <a href="#">
+            <i class="fa fa-question"></i> <span>Help</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i>Introduction to MIS</a></li>
+			<li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i>Application User Guide</a></li>
+			<li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i>Video Tutorial</a></li>
+			<li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Application Admin Guides</a></li>
+			<li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>FAQ</a></li>
+			<li class="treeview">
+				  <a href="#">
+					<i class="fa fa-circle-o"></i> <span>MIS System Guides</span> <i class="fa fa-angle-left pull-right"></i>
+				  </a>
+				  <ul class="treeview-menu">
+					<li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Data Collection Guide</a></li>
+					<li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> File Keeping Guide</a></li>
+					<li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Excel Management Guide</a></li>
+					<li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>  Excel Management Guide</a></li>
+				  </ul>
+			</li>
+			
+			<li class="treeview">
+				  <a href="#">
+					<i class="fa fa-circle-o"></i> <span>Software Documentation</span> <i class="fa fa-angle-left pull-right"></i>
+				  </a>
+				  <ul class="treeview-menu">
+					<li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> SRS</a></li>
+					<li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Data Base</a></li>
+					<li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Service API</a></li>
+					<li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i>Web Application</a></li>
+					<li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Android Application</a></li>
+					<li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Test Reports</a></li>
+					<li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Hosting Details</a></li>
+				  </ul>
+			</li>
+            
+            
+            <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>Help Desk</a></li>
+			<li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>System Management Team</a></li>
+			<li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i>System Development Team</a></li>
+          </ul>
+        </li>
+		
+		
+        
+      </ul>
+    </section>
+    <!-- /.sidebar -->
